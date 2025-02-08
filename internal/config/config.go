@@ -12,8 +12,8 @@ const envPath = "config/.env"
 
 // Config конфигурация приложения
 type Config struct {
-	FirstParam  string `env:"FIRST_PARAM"`
-	SecondParam string `env:"SECOND_PARAM"`
+	AppEnv   string `env:"APP_ENV" envDefault:"dev"`
+	HTTPPort string `env:"HTTP_PORT" envDefault:"8080"`
 }
 
 // Load загружает конфигурацию приложения
@@ -26,11 +26,6 @@ func Load() (Config, error) {
 	cfg, err := loadFromEnv()
 	if err != nil {
 		return Config{}, nil
-	}
-
-	err = validate(cfg)
-	if err != nil {
-		return Config{}, err
 	}
 
 	return cfg, nil
@@ -56,13 +51,4 @@ func loadFromEnv() (Config, error) {
 	}
 
 	return cfg, nil
-}
-
-// validate валидирует конфигурацию
-func validate(cfg Config) error {
-	if cfg.FirstParam == "" {
-		return fmt.Errorf("first param is required")
-	}
-
-	return nil
 }
