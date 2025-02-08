@@ -12,6 +12,7 @@ const envPath = "config/.env"
 
 // Config конфигурация приложения
 type Config struct {
+	AppEnv   string `env:"APP_ENV" envDefault:"dev"`
 	HTTPPort string `env:"HTTP_PORT" envDefault:"8080"`
 }
 
