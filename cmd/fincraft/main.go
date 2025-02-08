@@ -2,12 +2,12 @@ package main
 
 import (
 	"fincraft/internal/transport/handlers"
+	"fincraft/internal/transport/server"
 	"log"
 
 	"github.com/KutsDenis/logzap"
 
 	"fincraft/internal/config"
-	"fincraft/internal/server"
 )
 
 func main() {
