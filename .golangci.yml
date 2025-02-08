@@ -1,0 +1,79 @@
+linters-settings:
+  govet:
+    enable-all: true
+
+  gofmt:
+    simplify: true
+
+  gci:
+    sections:
+      - standard
+      - default
+      - localmodule
+    no-inline-comments: true
+    no-prefix-comments: true
+    custom-order: true
+
+  staticcheck:
+    checks: [ "all" ]
+
+  wsl:
+    allow-assign-and-call: true
+    allow-multiline-assign: true
+    allow-trailing-comment: true
+    allow-separated-leading-comment: false
+    allow-cuddle-declarations: false
+    allow-cuddle-with-calls: [ "Lock", "RLock" ]
+    allow-cuddle-with-rhs: [ "Unlock", "RUnlock" ]
+    force-short-decl-cuddling: true
+
+  whitespace:
+    multi-if: true
+    multi-func: true
+
+  varnamelen:
+    check-return: true
+    ignore-type-assert-ok: true
+    ignore-map-index-ok: true
+    ignore-chan-recv-ok: true
+
+  unused:
+    field-writes-are-uses: false
+    exported-fields-are-used: false
+    parameters-are-used: false
+    local-variables-are-used: false
+
+  usestdlibvars:
+    time-month: true
+    time-layout: true
+    crypto-hash: true
+    default-rpc-path: true
+    sql-isolation-level: true
+    tls-signature-scheme: true
+    constant-kind: true
+
+  maintidx:
+    under: 85
+
+linters:
+  enable:
+    - gofmt
+    - govet
+    - staticcheck
+    - gci
+    - wsl
+    - errcheck
+    - whitespace
+    - varnamelen
+    - unused
+    - usestdlibvars
+    - stylecheck
+    - recvcheck
+    - nakedret
+    - mnd
+    - perfsprint
+    - prealloc
+    - maintidx
+    - lll
+    - gosec
+    - gosimple
