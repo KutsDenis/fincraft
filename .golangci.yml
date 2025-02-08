@@ -25,7 +25,8 @@ linters-settings:
     allow-cuddle-declarations: false
     allow-cuddle-with-calls: [ "Lock", "RLock" ]
     allow-cuddle-with-rhs: [ "Unlock", "RUnlock" ]
-    force-short-decl-cuddling: true
+    force-short-decl-cuddling: false
+    force-err-cuddling: true
 
   whitespace:
     multi-if: true
@@ -36,6 +37,8 @@ linters-settings:
     ignore-type-assert-ok: true
     ignore-map-index-ok: true
     ignore-chan-recv-ok: true
+    ignore-names:
+      - db
 
   unused:
     field-writes-are-uses: false
@@ -53,7 +56,13 @@ linters-settings:
     constant-kind: true
 
   maintidx:
-    under: 85
+    under: 50
+
+  gocyclo:
+    min-complexity: 5
+
+  gocognit:
+    min-complexity: 8
 
 linters:
   enable:
@@ -77,3 +86,5 @@ linters:
     - lll
     - gosec
     - gosimple
+    - gocyclo
+    - gocognit

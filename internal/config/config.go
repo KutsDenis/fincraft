@@ -8,13 +8,16 @@ import (
 	"github.com/joho/godotenv"
 )
 
+const ProdEnv = "prod"
+const MigrationsPath = "migrations"
+
 const envPath = "config/.env"
 
 // Config конфигурация приложения
 type Config struct {
 	AppEnv   string `env:"APP_ENV" envDefault:"dev"`
 	HTTPPort string `env:"HTTP_PORT" envDefault:"8080"`
-	DBPath   string `env:"DB_PATH" envDefault:""`
+	DBPath   string `env:"DB_PATH"`
 }
 
 // Load загружает конфигурацию приложения
